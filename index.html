@@ -5,163 +5,340 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gems Online Grocery Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Custom CSS for Modals */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 50;
+        body {
+            background-color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
         }
 
-        .modal-content {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        .flash-deals {
+            background-color: #e7f6e7;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Hero Carousel Styling */
-        .hero-carousel img {
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
+        .product-card {
+            border: 1px solid #d1d5db;
             border-radius: 10px;
-            width: 100%;
+            padding: 1rem;
+            background-color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .carousel-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(92, 82, 82, 0.5);
-            color: rgb(254, 251, 251);
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            text-align: center;
-            width: 80%;
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Slick Carousel Dots and Arrows */
-        .slick-dots li button:before {
-            color: green;
+        .section-title {
+            color: #047857;
+            margin-bottom: 1rem;
         }
 
-        .slick-prev,
-        .slick-next {
-            z-index: 10;
-            color: green !important;
+        header {
+            background: linear-gradient(to right, #047857, #065f46);
         }
 
-        /* Responsive Navbar */
-        @media (max-width: 768px) {
-            .nav-link {
-                display: block;
-                padding: 0.5rem;
-            }
-
-            .carousel-caption {
-                font-size: 0.875rem;
-                padding: 5px 10px;
-                width: 90%;
-            }
+        footer {
+            background: linear-gradient(to right, #065f46, #047857);
         }
 
-        @media (max-width: 640px) {
-            .modal-content {
-                padding: 1rem;
-                max-width: 90%;
-            }
-
-            .hero-carousel img {
-                height: auto;
-            }
+        .nav-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md py-4 px-6 flex justify-between items-center flex-wrap">
-        <div class="flex items-center space-x-4">
-            <img src="https://via.placeholder.com/50" alt="Gems Logo" class="h-10">
-            <span class="text-green-700 text-xl font-bold">Gems</span>
-        </div>
-        <button id="menu-btn" class="md:hidden text-gray-700 hover:text-green-600">☰</button>
-        <ul id="menu" class="hidden md:flex space-x-8 w-full md:w-auto md:flex-row flex-col text-center md:text-left">
-            <li><a href="index.html" class="text-gray-700 hover:text-green-600 nav-link">Home</a></li>
-            <li><a href="products.html" class="text-gray-700 hover:text-green-600 nav-link">Products</a></li>
-            <li><a href="services.html" class="text-gray-700 hover:text-green-600 nav-link">Services</a></li>
-            <li><a href="reviews.html" class="text-gray-700 hover:text-green-600 nav-link">Reviews</a></li>
-        </ul>
-        <div class="flex items-center space-x-6">
-            <a href="cart.html" class="block">
-                <button class="text-gray-700 hover:text-green-600" aria-label="Cart">Cart</button>
-            </a>
-            <button id="login-btn" class="text-gray-700 hover:text-green-600" aria-label="Login">Login</button>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section with Carousel -->
-    <section id="home" class="py-8 px-6">
-        <div class="hero-carousel mb-12">
-            <div class="relative">
-                <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/vegetables-1238252_1280.jpg" alt="Fresh Vegetables">
-                <div class="carousel-caption">Fresh and Healthy Vegetables for Your Daily Needs</div>
-            </div>
-            <div class="relative">
-                <img src="https://cdn.pixabay.com/photo/2015/12/30/11/57/fruits-1114060_1280.jpg" alt="Organic Fruits">
-                <div class="carousel-caption">Organic Fruits Sourced Directly from Farmers</div>
-            </div>
-            <div class="relative">
-                <img src="https://cdn.pixabay.com/photo/2019/03/13/11/07/supermarket-4052658_1280.jpg" alt="Quality Groceries">
-                <div class="carousel-caption">Quality Groceries for Every Household</div>
+    <header class="text-white py-6 flex flex-col items-center space-y-3 relative">
+        <h1 class="text-2xl font-bold">Gems Grocery</h1>
+        <div class="w-full flex justify-center items-center relative">
+            <!-- Search input field -->
+            <input type="text" placeholder="Search products"
+                class="p-3 w-3/4 md:w-1/2 rounded-md focus:outline-none focus:ring focus:ring-green-500 pr-10">
+
+            <!-- Location icon and text -->
+            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-black flex items-center">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span id="location-text">Bangalore</span>
             </div>
         </div>
-        <h2 class="text-3xl font-bold text-green-700 text-center">Welcome to Gems Online Grocery Store</h2>
-        <p class="text-gray-700 text-center mt-4">Your one-stop shop for fresh and quality groceries.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 text-center">
-        <p>&copy; 2025 Gems Online Grocery Store. All rights reserved.</p>
-    </footer>
+    </header>
 
     <script>
-        // Mobile Menu Toggle
-        document.getElementById("menu-btn").addEventListener("click", () => {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("hidden");
-        });
+        // Check if geolocation is available
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
 
-        // Initialize Slick Carousel
-        $(document).ready(function () {
-            $('.hero-carousel').slick({
-                dots: true,
-                arrows: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                adaptiveHeight: true,
-                prevArrow: '<button type="button" class="slick-prev">&lt;</button>',
-                nextArrow: '<button type="button" class="slick-next">&gt;</button>',
+                // Fetch the location from the coordinates using a reverse geocoding API (like OpenCage, Google Maps, etc.)
+                // For simplicity, I'll just update the text with a basic message indicating GPS is used.
+                document.getElementById("location-text").textContent = "Current Location: " + latitude.toFixed(2) + ", " + longitude.toFixed(2);
+            }, function () {
+                // Handle location access denied
+                document.getElementById("location-text").textContent = "Location access denied";
             });
-        });
+        } else {
+            document.getElementById("location-text").textContent = "Geolocation not supported";
+        }
     </script>
+
+    <div class="absolute top-6 right-6 flex space-x-4">
+        <!-- Cart Icon -->
+        <div class="text-white cursor-pointer">
+            <i class="fas fa-shopping-cart text-xl"></i>
+        </div>
+        <!-- Location Icon -->
+        <div class="text-white cursor-pointer">
+            <i class="fas fa-user-alt text-xl"></i>
+        </div>
+    </div>
+
+    <nav class="bg-green-100 py-3 flex justify-center space-x-6">
+        <a href="#" class="text-green-700 font-semibold nav-link">Vegetables</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Fruits</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Milk & Dairy</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="flash-deals mb-10">
+            <h2 class="text-xl font-bold section-title">Flash Deal: Avail Any 4 Deals</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2019/05/29/19/04/tomatoes-4238247_1280.jpg" alt="Tomato"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Tomato Desi</h3>
+                    <p class="text-green-700 font-bold">₹5/500g</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_1280.jpg" alt="Guava"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Guava</h3>
+                    <p class="text-green-700 font-bold">₹23/450g</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2020/09/02/15/29/cauliflower-5538616_1280.jpg"
+                        alt="Cauliflower" class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Cauliflower</h3>
+                    <p class="text-green-700 font-bold">₹14/600g</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_1280.jpg" alt="Banana"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Banana Large</h3>
+                    <p class="text-green-700 font-bold">₹42/4pcs</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/14/19/11/green-chilli-2641573_1280.jpg" alt="Chilli"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Green Chilli</h3>
+                    <p class="text-green-700 font-bold">₹42/4pcs</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg" alt="Potatoes"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Potato</h3>
+                    <p class="text-green-700 font-bold">₹42/4pcs</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-bold section-title">Vegetables</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2014/11/06/17/31/green-beans-519439_1280.jpg"
+                        alt="French Beans" class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">French Beans</h3>
+                    <p class="text-green-700 font-bold">₹31.9/350g</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_1280.jpg" alt="Ginger"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Ginger</h3>
+                    <p class="text-green-700 font-bold">₹25.9/200g</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2019/05/06/01/42/green-4182079_1280.jpg" alt="Cucumber"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Cucumber</h3>
+                    <p class="text-green-700 font-bold">₹31.5/500g</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/18/15/54/onion-5187140_1280.jpg" alt="Onion"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Onion</h3>
+                    <p class="text-green-700 font-bold">₹52.5/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_1280.jpg" alt="Brocolli"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Brocolli</h3>
+                    <p class="text-green-700 font-bold">₹52.5/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2016/09/10/17/47/eggplant-1659784_1280.jpg" alt="Eggplant"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">EggPlant</h3>
+                    <p class="text-green-700 font-bold">₹52.5/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-bold section-title">Fruits</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apple"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Apple</h3>
+                    <p class="text-green-700 font-bold">₹120/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/mango-5171747_1280.jpg" alt="Mango"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Mango</h3>
+                    <p class="text-green-700 font-bold">₹150/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg" alt="grapes"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Grapes</h3>
+                    <p class="text-green-700 font-bold">₹150/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg"
+                        alt="Watermelon" class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Watermelon</h3>
+                    <p class="text-green-700 font-bold">₹150/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/papaya-3349834_1280.jpg" alt="Papaya"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Papaya</h3>
+                    <p class="text-green-700 font-bold">₹150/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/oranges-1995079_1280.jpg" alt="orange"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Orange</h3>
+                    <p class="text-green-700 font-bold">₹150/kg</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-bold section-title">Milk & Dairy</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2019/07/25/20/55/milk-4363421_1280.jpg" alt="Milk"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Full Cream Milk</h3>
+                    <p class="text-green-700 font-bold">₹50/L</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2013/09/27/09/53/butter-186909_1280.jpg" alt="Butter"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Butter</h3>
+                    <p class="text-green-700 font-bold">₹50/pack</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2020/07/04/09/29/paneer-5368890_1280.jpg" alt="Paneer"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Paneer</h3>
+                    <p class="text-green-700 font-bold">₹150/pack</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2023/11/10/10/19/cheese-8379082_1280.jpg" alt="Cheese"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Cheese</h3>
+                    <p class="text-green-700 font-bold">₹150/pack</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2021/01/18/16/29/cheese-5928622_1280.jpg" alt="Cheese"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Cheddar Cheese</h3>
+                    <p class="text-green-700 font-bold">₹150/pack</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2017/12/14/02/41/yogurt-3018152_1280.jpg" alt="Yogurt"
+                        class="w-full h-24 object-cover mb-2 rounded">
+                    <h3 class="text-sm font-semibold">Yogurt</h3>
+                    <p class="text-green-700 font-bold">₹150/L</p>
+                    <button class="bg-green-600 text-white w-full py-1 mt-2 rounded-md hover:bg-green-700">Add</button>
+                </div>
+            </div>
+        </section>
+        <script>
+            function toggleQuantity(button) {
+                const productCard = button.closest('.product-card');
+                const quantityDiv = productCard.querySelector('.quantity-btns');
+                const quantitySpan = quantityDiv.querySelector('#quantity');
+                const addButton = productCard.querySelector('button');
+
+                // Toggle visibility of quantity buttons and change button text
+                if (quantityDiv.style.display === 'none' || quantityDiv.style.display === '') {
+                    quantityDiv.style.display = 'flex';
+                    addButton.textContent = 'Add More';
+                } else {
+                    quantityDiv.style.display = 'none';
+                    addButton.textContent = 'Add';
+                }
+            }
+
+            function increaseQuantity(button) {
+                const quantitySpan = button.previousElementSibling;
+                let quantity = parseInt(quantitySpan.textContent);
+                quantitySpan.textContent = ++quantity;
+            }
+
+            function decreaseQuantity(button) {
+                const quantitySpan = button.nextElementSibling;
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 1) {
+                    quantitySpan.textContent = --quantity;
+                } else {
+                    button.closest('.product-card').querySelector('button').textContent = 'Add';
+                    button.closest('.quantity-btns').style.display = 'none';
+                }
+            }
+        </script>
+    </main>
+    <footer class="text-white py-6 text-center">
+        <div class="container mx-auto">
+            <p class="text-sm">&copy; 2025 Gems Online Grocery Store. All rights reserved.</p>
+            <p class="text-xs mt-2">Designed with care and passion for a better shopping experience.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
