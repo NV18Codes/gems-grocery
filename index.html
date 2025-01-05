@@ -101,10 +101,12 @@
             <button id="login-btn" class="text-gray-700 hover:text-green-600" aria-label="Login">Login</button>
         </div>
     </nav>
-
-    <!-- Login/Sign-Up Modal -->
+    <!-- Login Modal -->
     <div id="login-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content relative">
+            <button id="close-login" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold">
+                &times;
+            </button>
             <h2 class="text-2xl font-bold text-green-700 mb-4">Welcome Back!</h2>
             <form class="space-y-4">
                 <div>
@@ -122,14 +124,19 @@
                 <button type="submit"
                     class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">Login</button>
             </form>
-            <p class="text-gray-600 text-center mt-4">Don't have an account? <button id="signup-btn"
-                    class="text-green-600 hover:underline">Sign Up</button></p>
+            <p class="text-gray-600 text-center mt-4">Don't have an account?
+                <button id="signup-btn" class="text-green-600 hover:underline">Sign Up</button>
+            </p>
         </div>
     </div>
 
     <!-- Sign-Up Modal -->
     <div id="signup-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content relative">
+            <button id="close-signup"
+                class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold">
+                &times;
+            </button>
             <h2 class="text-2xl font-bold text-green-700 mb-4">Create an Account</h2>
             <form class="space-y-4">
                 <div>
@@ -148,12 +155,52 @@
                     class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">Sign
                     Up</button>
             </form>
-            <p class="text-gray-600 text-center mt-4">Already have an account? <button id="back-to-login"
-                    class="text-green-600 hover:underline">Login</button></p>
-            <div id="offer" class="offer-card hidden">Unlock Special Offers with Sign Up!</div>
+            <p class="text-gray-600 text-center mt-4">Already have an account?
+                <button id="back-to-login" class="text-green-600 hover:underline">Login</button>
+            </p>
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginModal = document.getElementById("login-modal");
+            const signupModal = document.getElementById("signup-modal");
+
+            const closeLoginBtn = document.getElementById("close-login");
+            const closeSignupBtn = document.getElementById("close-signup");
+
+            const signupBtn = document.getElementById("signup-btn");
+            const backToLoginBtn = document.getElementById("back-to-login");
+
+            // Open Sign-Up modal from Login modal
+            signupBtn.addEventListener("click", () => {
+                loginModal.style.display = "none";
+                signupModal.style.display = "flex";
+            });
+
+            // Back to Login modal from Sign-Up modal
+            backToLoginBtn.addEventListener("click", () => {
+                signupModal.style.display = "none";
+                loginModal.style.display = "flex";
+            });
+
+            // Close Login Modal
+            closeLoginBtn.addEventListener("click", () => {
+                loginModal.style.display = "none";
+            });
+
+            // Close Sign-Up Modal
+            closeSignupBtn.addEventListener("click", () => {
+                signupModal.style.display = "none";
+            });
+
+            // Close modals when clicking outside the content
+            window.addEventListener("click", (e) => {
+                if (e.target === loginModal) loginModal.style.display = "none";
+                if (e.target === signupModal) signupModal.style.display = "none";
+            });
+        });
+    </script>
     <!-- Home Page -->
     <section id="home" class="py-8 px-8">
         <!-- Hero Section with Carousel -->
@@ -236,7 +283,7 @@
     </footer>
 
     <script>
-       // Modal Functionality
+        // Modal Functionality
         const loginModal = document.getElementById('login-modal');
         const signupModal = document.getElementById('signup-modal');
         const loginBtn = document.getElementById('login-btn');
