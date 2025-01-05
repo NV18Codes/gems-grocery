@@ -6,14 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gems Online Grocery Store - Services</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for hover effect */
+        .service-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
 </head>
 
 <body class="bg-white text-gray-900">
-    <header class="text-white p-4">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-lg font-bold">Gems Online Grocery</a>
-            <ul class="flex space-x-8">
+    <!-- Navbar -->
+    <header class="bg-white shadow">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
+            <a href="#" class="text-lg font-bold text-green-600">Gems Online Grocery</a>
+            <button id="menu-toggle" class="md:hidden block text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <ul id="menu" class="hidden md:flex space-x-8">
                 <li><a href="index.html" class="text-gray-700 hover:text-green-600">Home</a></li>
                 <li><a href="products.html" class="text-gray-700 hover:text-green-600">Products</a></li>
                 <li><a href="services.html" class="text-gray-700 hover:text-green-600 nav-link active">Services</a></li>
@@ -23,24 +40,27 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-green-500 text-white text-center py-20">
-        <h1 class="text-4xl font-bold">Our Services</h1>
-        <p class="mt-4 text-xl">Explore our range of services to make your grocery shopping easier.</p>
+    <section class="bg-green-500 text-white text-center py-16 md:py-20">
+        <h1 class="text-3xl md:text-4xl font-bold">Our Services</h1>
+        <p class="mt-4 text-lg md:text-xl">Explore our range of services to make your grocery shopping easier.</p>
     </section>
 
     <!-- Services List -->
     <section class="py-16 px-4">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card -->
             <div class="service-card bg-white p-6 shadow-lg rounded-lg hover:bg-green-50 transition-all duration-300">
                 <div class="text-green-500 text-4xl mb-4">🚚</div>
                 <h3 class="text-2xl font-semibold">Delivery Service</h3>
                 <p class="mt-2">Fast and reliable delivery to your doorstep, anywhere in town.</p>
             </div>
+            <!-- Service Card -->
             <div class="service-card bg-white p-6 shadow-lg rounded-lg hover:bg-green-50 transition-all duration-300">
                 <div class="text-green-500 text-4xl mb-4">📅</div>
                 <h3 class="text-2xl font-semibold">Subscription Plans</h3>
                 <p class="mt-2">Choose a plan and get regular deliveries at discounted prices.</p>
             </div>
+            <!-- Service Card -->
             <div class="service-card bg-white p-6 shadow-lg rounded-lg hover:bg-green-50 transition-all duration-300">
                 <div class="text-green-500 text-4xl mb-4">🎁</div>
                 <h3 class="text-2xl font-semibold">Special Offers</h3>
@@ -49,24 +69,20 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white p-4 text-center">
         <p>&copy; 2025 Gems Online Grocery. All rights reserved.</p>
     </footer>
-    <style>
-        /* styles.css */
-        body {
-            font-family: 'Arial', sans-serif;
-        }
 
-        .service-card {
-            transition: transform 0.3s ease-in-out;
-        }
+    <script>
+        // Toggle menu for mobile view
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
 
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-    </style>
-    <script src="script.js"></script>
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>

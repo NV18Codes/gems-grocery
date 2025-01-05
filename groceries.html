@@ -10,15 +10,15 @@
 
 <body class="bg-gray-50 text-gray-900">
     <nav class="bg-white shadow-md py-4 px-8">
-        <a href="products.html" class="text-blue-700 text-xl font-bold">← Back to Home</a>
+        <a href="products.html" class="text-blue-700 text-xl font-bold">&larr; Back to Home</a>
     </nav>
     <header class="text-center py-8 bg-blue-100">
         <h1 class="text-4xl font-bold text-blue-700">Quality Groceries</h1>
         <p class="text-lg text-gray-700">Stock up on the essentials for your kitchen!</p>
     </header>
-    <main class="py-8 px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+    <main class="py-8 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         <!-- Product Card -->
-        <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg">
+        <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg flex flex-col">
             <img src="https://via.placeholder.com/200" alt="Rice" class="h-48 w-full object-cover rounded">
             <h2 class="text-xl font-semibold mt-4">Basmati Rice</h2>
             <p class="text-gray-600">Aromatic and long-grain rice, perfect for daily meals.</p>
@@ -32,9 +32,11 @@
                     class="absolute top-0 right-0 bg-blue-600 text-white text-xs px-2 py-1 rounded-full hidden">+1</span>
             </div>
         </div>
-        <!-- Repeat for other products (flour, sugar, salt, spices, lentils, etc.) -->
+        <!-- Repeat similar cards for other products -->
     </main>
-    <div class="fixed bottom-8 right-8 p-4 bg-blue-700 text-white rounded-full cursor-pointer" onclick="viewCart()">Cart
+    <div class="fixed bottom-8 right-8 p-4 bg-blue-700 text-white rounded-full cursor-pointer shadow-lg hover:bg-blue-800"
+        onclick="viewCart()">
+        Cart
     </div>
 
     <script>

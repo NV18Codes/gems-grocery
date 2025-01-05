@@ -6,14 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gems Online Grocery Store - Reviews</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for hover effect */
+        .review-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
 
 <body class="bg-white text-gray-900">
-    <header class="text-white p-4">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-lg font-bold">Gems Online Grocery</a>
-            <ul class="flex space-x-8">
+    <!-- Navbar -->
+    <header class="bg-white shadow">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
+            <a href="#" class="text-lg font-bold text-green-600">Gems Online Grocery</a>
+            <button id="menu-toggle" class="md:hidden block text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <ul id="menu" class="hidden md:flex space-x-8">
                 <li><a href="index.html" class="text-gray-700 hover:text-green-600">Home</a></li>
                 <li><a href="products.html" class="text-gray-700 hover:text-green-600">Products</a></li>
                 <li><a href="services.html" class="text-gray-700 hover:text-green-600">Services</a></li>
@@ -30,7 +47,8 @@
 
     <!-- Review List -->
     <section class="py-16 px-4">
-        <div class="max-w-7xl mx-auto space-y-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Review Card -->
             <div class="review-card bg-white p-6 shadow-lg rounded-lg">
                 <div class="flex items-center mb-4">
                     <img src="https://via.placeholder.com/50" alt="Customer" class="rounded-full mr-4">
@@ -41,6 +59,7 @@
                 </div>
                 <p>"The delivery service was fantastic, and the products are always fresh! Highly recommend."</p>
             </div>
+            <!-- Review Card -->
             <div class="review-card bg-white p-6 shadow-lg rounded-lg">
                 <div class="flex items-center mb-4">
                     <img src="https://via.placeholder.com/50" alt="Customer" class="rounded-full mr-4">
@@ -78,28 +97,26 @@
                 <textarea id="review" class="w-full p-3 border border-gray-300 rounded-lg" rows="4"
                     placeholder="Write your review here"></textarea>
             </div>
-            <button type="submit" class="bg-green-500 text-white py-3 px-6 rounded-lg">Submit Review</button>
+            <button type="submit" class="bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600">
+                Submit Review
+            </button>
         </form>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white p-4 text-center">
         <p>&copy; 2025 Gems Online Grocery. All rights reserved.</p>
     </footer>
-    <style>
-        /* styles.css */
-        body {
-            font-family: 'Arial', sans-serif;
-        }
 
-        .review-card {
-            transition: transform 0.3s ease-in-out;
-        }
+    <script>
+        // Toggle menu for mobile view
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
 
-        .review-card:hover {
-            transform: translateY(-5px);
-        }
-    </style>
-    <script src="script.js"></script>
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
