@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gems Online Grocery Store - Reviews</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-white text-gray-900">
+    <header class="text-white p-4">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-lg font-bold">Gems Online Grocery</a>
+            <ul class="flex space-x-8">
+                <li><a href="index.html" class="text-gray-700 hover:text-green-600">Home</a></li>
+                <li><a href="products.html" class="text-gray-700 hover:text-green-600">Products</a></li>
+                <li><a href="services.html" class="text-gray-700 hover:text-green-600">Services</a></li>
+                <li><a href="reviews.html" class="text-gray-700 hover:text-green-600 nav-link active">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-green-500 text-white text-center py-20">
+        <h1 class="text-4xl font-bold">Customer Reviews</h1>
+        <p class="mt-4 text-xl">See what our customers have to say about our services.</p>
+    </section>
+
+    <!-- Review List -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto space-y-8">
+            <div class="review-card bg-white p-6 shadow-lg rounded-lg">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Customer" class="rounded-full mr-4">
+                    <div>
+                        <p class="font-semibold">John Doe</p>
+                        <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
+                    </div>
+                </div>
+                <p>"The delivery service was fantastic, and the products are always fresh! Highly recommend."</p>
+            </div>
+            <div class="review-card bg-white p-6 shadow-lg rounded-lg">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Customer" class="rounded-full mr-4">
+                    <div>
+                        <p class="font-semibold">Jane Smith</p>
+                        <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
+                    </div>
+                </div>
+                <p>"I love the subscription plans! It’s convenient and saves me a lot of time."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Review Form -->
+    <section class="bg-gray-100 py-16 px-4">
+        <h2 class="text-3xl font-semibold text-center mb-8">Submit Your Review</h2>
+        <form id="reviewForm" class="max-w-3xl mx-auto bg-white p-6 shadow-lg rounded-lg">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-semibold">Your Name</label>
+                <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg"
+                    placeholder="Enter your name">
+            </div>
+            <div class="mb-4">
+                <label for="rating" class="block text-gray-700 font-semibold">Rating</label>
+                <select id="rating" class="w-full p-3 border border-gray-300 rounded-lg">
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="1">⭐</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="review" class="block text-gray-700 font-semibold">Review</label>
+                <textarea id="review" class="w-full p-3 border border-gray-300 rounded-lg" rows="4"
+                    placeholder="Write your review here"></textarea>
+            </div>
+            <button type="submit" class="bg-green-500 text-white py-3 px-6 rounded-lg">Submit Review</button>
+        </form>
+    </section>
+
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2025 Gems Online Grocery. All rights reserved.</p>
+    </footer>
+    <style>
+        /* styles.css */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .review-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+    <script src="script.js"></script>
+</body>
+
+</html>

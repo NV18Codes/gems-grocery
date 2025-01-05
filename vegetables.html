@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Vegetables</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <nav class="bg-white shadow-md py-4 px-8">
+        <a href="products.html" class="text-green-700 text-xl font-bold">← Back to Home</a>
+    </nav>
+    <header class="text-center py-8 bg-green-100">
+        <h1 class="text-4xl font-bold text-green-700">Fresh Vegetables</h1>
+        <p class="text-lg text-gray-700">Explore our collection of farm-fresh vegetables!</p>
+    </header>
+    <main class="py-8 px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <!-- Product Card -->
+        <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg">
+            <img src="https://via.placeholder.com/200" alt="Carrots" class="h-48 w-full object-cover rounded">
+            <h2 class="text-xl font-semibold mt-4">Carrots</h2>
+            <p class="text-gray-600">Rich in Vitamin A and fresh from the farm.</p>
+            <span class="text-green-700 font-bold">$2.99 / lb</span>
+            <div class="relative mt-4">
+                <button id="btn-Carrots" onclick="addToCart('Carrots', 2.99)"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">
+                    Add to Cart
+                </button>
+                <span id="notification-Carrots"
+                    class="absolute top-0 right-0 bg-green-600 text-white text-xs px-2 py-1 rounded-full hidden">+1</span>
+            </div>
+        </div>
+        <!-- Repeat the above structure for other products like broccoli, lettuce, spinach, etc. -->
+    </main>
+    <div class="fixed bottom-8 right-8 p-4 bg-green-700 text-white rounded-full cursor-pointer" onclick="viewCart()">
+        Cart</div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product, price) {
+            // Find the button and notification
+            const button = document.getElementById(`btn-${product}`);
+            const notification = document.getElementById(`notification-${product}`);
+
+            // Show the +1 notification
+            notification.style.display = 'inline-block';
+
+            // Add product to the cart
+            const productIndex = cart.findIndex(item => item.product === product);
+            if (productIndex !== -1) {
+                cart[productIndex].quantity += 1;  // Update the quantity
+            } else {
+                cart.push({ product, price, quantity: 1 });
+            }
+
+            // Temporarily disable the button and change text to 'Added'
+            button.textContent = 'Added';
+            button.disabled = true;
+
+            // Hide the notification and reset the button after 1.5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+                button.textContent = 'Add to Cart';
+                button.disabled = false;
+            }, 1500);
+
+            updateCartSummary();
+        }
+
+        function updateCartSummary() {
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+
+            // You can update this to dynamically show the cart total somewhere
+            console.log('Cart Summary:', cart);
+            console.log('Subtotal:', subtotal);
+        }
+
+        function viewCart() {
+            alert(`Cart: ${JSON.stringify(cart, null, 2)}`);
+        }
+    </script>
+</body>
+
+</html>

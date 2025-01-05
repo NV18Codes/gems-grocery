@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Gems Online Grocery Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white shadow py-4 px-8 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <img src="https://via.placeholder.com/50" alt="Gems Logo" class="h-10">
+            <span class="text-green-700 text-xl font-bold">Gems</span>
+        </div>
+        <ul class="flex space-x-8">
+            <li><a href="index.html" class="text-gray-700 hover:text-green-600">Home</a></li>
+            <li><a href="products.html" class="text-gray-700 hover:text-green-600 nav-link active">Products</a></li>
+            <li><a href="services.html" class="text-gray-700 hover:text-green-600">Services</a></li>
+            <li><a href="reviews.html" class="text-gray-700 hover:text-green-600">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="py-12 px-8">
+        <h1 class="text-3xl font-bold text-green-700 text-center mb-8">Our Products</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Fresh Vegetables -->
+            <div class="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
+                <a href="vegetables.html" class="block">
+                    <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/vegetables-1238252_1280.jpg"
+                        alt="Vegetables" class="w-full h-48 object-cover rounded">
+                    <h2 class="text-xl font-bold text-green-600 mt-4">Fresh Vegetables</h2>
+                    <p class="text-gray-600 mt-2">Get the freshest vegetables directly sourced from farms.</p>
+                </a>
+            </div>
+            <!-- Organic Fruits -->
+            <div class="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
+                <a href="fruits.html" class="block">
+                    <img src="https://cdn.pixabay.com/photo/2015/12/30/11/57/fruits-1114060_1280.jpg" alt="Fruits"
+                        class="w-full h-48 object-cover rounded">
+                    <h2 class="text-xl font-bold text-green-600 mt-4">Organic Fruits</h2>
+                    <p class="text-gray-600 mt-2">Enjoy a variety of organic fruits, handpicked for quality.</p>
+                </a>
+            </div>
+            <!-- Daily Groceries -->
+            <div class="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
+                <a href="groceries.html" class="block">
+                    <img src="https://cdn.pixabay.com/photo/2019/03/13/11/07/supermarket-4052658_1280.jpg"
+                        alt="Groceries" class="w-full h-48 object-cover rounded">
+                    <h2 class="text-xl font-bold text-green-600 mt-4">Daily Groceries</h2>
+                    <p class="text-gray-600 mt-2">Your daily essentials, all in one place.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2025 Gems Online Grocery Store. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
