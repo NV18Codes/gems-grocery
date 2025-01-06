@@ -61,11 +61,12 @@
             <input type="text" placeholder="Search products"
                 class="p-3 w-3/4 md:w-1/2 rounded-md focus:outline-none focus:ring focus:ring-green-500 pr-10">
 
-            <!-- Location icon and text -->
-            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-black flex items-center">
+            </div><!-- Location icon and text -->
+            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-black flex items-center hidden sm:flex">
                 <i class="fas fa-map-marker-alt mr-2"></i>
                 <span id="location-text">Bangalore</span>
             </div>
+            
         </div>
     </header>
 
@@ -105,6 +106,7 @@
         <a href="#" class="text-green-700 font-semibold nav-link">Milk & Dairy</a>
         <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
     </nav>
+
 
     <main class="container mx-auto px-4 py-8">
         <section class="flash-deals mb-10">
@@ -304,7 +306,7 @@
                 const quantityDiv = productCard.querySelector('.quantity-btns');
                 const quantitySpan = quantityDiv.querySelector('#quantity');
                 const addButton = productCard.querySelector('button');
-
+    
                 // Toggle visibility of quantity buttons and change button text
                 if (quantityDiv.style.display === 'none' || quantityDiv.style.display === '') {
                     quantityDiv.style.display = 'flex';
@@ -314,13 +316,13 @@
                     addButton.textContent = 'Add';
                 }
             }
-
+    
             function increaseQuantity(button) {
                 const quantitySpan = button.previousElementSibling;
                 let quantity = parseInt(quantitySpan.textContent);
                 quantitySpan.textContent = ++quantity;
             }
-
+    
             function decreaseQuantity(button) {
                 const quantitySpan = button.nextElementSibling;
                 let quantity = parseInt(quantitySpan.textContent);
@@ -333,6 +335,7 @@
             }
         </script>
     </main>
+    
     <footer class="text-white py-6 text-center">
         <div class="container mx-auto">
             <p class="text-sm">&copy; 2025 Gems Online Grocery Store. All rights reserved.</p>
