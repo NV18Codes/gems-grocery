@@ -35,7 +35,7 @@
         }
 
         .section-title {
-            color: #047857;
+            color: #0b0b0b;
             margin-bottom: 1rem;
         }
 
@@ -44,7 +44,7 @@
         }
 
         footer {
-            background: linear-gradient(to right, #065f46, #047857);
+            background: linear-gradient(to right, #2ccd6a, #0fb842);
         }
 
         .nav-link:hover {
@@ -89,7 +89,8 @@
 
             <!-- Login, Cart, and Location Section (Right Aligned) -->
             <div class="flex items-center space-x-6 mb-4 sm:mb-0">
-                <button class="bg-green-700 py-2 px-4 rounded-md text-sm hover:bg-green-500 transition duration-300"
+                <button
+                    class="bg-white py-2 px-4 rounded-md text-sm hover:bg-green-200 text-green-600 font-bold transition duration-300"
                     aria-label="Login">
                     Login
                 </button>
@@ -135,222 +136,604 @@
         <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
     </nav>
 
-    <!-- Product List and Search Functionality -->
-    <section class="mb-10">
+    <section class="mb-10 ml-10 mr-10 mt-4">
         <h2 class="text-xl font-bold">Flash Deal: Avail Any 4 Deals</h2>
-        <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
-            <div class="product-card" data-name="Tomato Desi">
-                <img src="https://cdn.pixabay.com/photo/2019/05/29/19/04/tomatoes-4238247_1280.jpg" alt="Tomato"
-                    class="w-full h-24 object-cover mb-2 rounded" />
-                <h3 class="text-sm font-semibold">Tomato Desi</h3>
-                <p class="text-green-700 font-bold">R:5/500g</p>
-                <button class="add-button">+ ADD</button>
-            </div>
-            <div class="product-card" data-name="Guava">
-                <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_1280.jpg" alt="Guava"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Guava</h3>
-                <p class="text-green-700 font-bold">R:23/450g</p>
-                <button class="add-button">+ ADD</button>
+        <div class="flex items-center mt-4">
+            <!-- Left Arrow Button -->
+            <button id="prev-btn" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50">
+                &lt;
+            </button>
 
+            <!-- Product List -->
+            <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
+                style="width: 100%;">
+                <!-- Individual Product Cards -->
+                <div class="product-card" data-name="Tomato Desi">
+                    <img src="https://cdn.pixabay.com/photo/2019/05/29/19/04/tomatoes-4238247_1280.jpg" alt="Tomato"
+                        class="w-full h-24 object-cover mb-2 rounded" />
+                    <h3 class="text-sm font-semibold">Tomato Desi</h3>
+                    <p class="text-green-700 font-bold">R 5/500g</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="product-card" data-name="Guava">
+                    <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_1280.jpg" alt="Guava"
+                        class="w-full h-24 object-cover mb-2 rounded" />
+                    <h3 class="text-sm font-semibold">Guava</h3>
+                    <p class="text-green-700 font-bold">R 23/450g</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="product-card" data-name="Cauliflower">
+                    <img src="https://cdn.pixabay.com/photo/2020/09/02/15/29/cauliflower-5538616_1280.jpg"
+                        alt="Cauliflower" class="w-full h-24 object-cover mb-2 rounded" />
+                    <h3 class="text-sm font-semibold">Cauliflower</h3>
+                    <p class="text-green-700 font-bold">R 14/600g</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="product-card" data-name="Banana">
+                    <img src="https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_1280.jpg" alt="Banana"
+                        class="w-full h-24 object-cover mb-2 rounded" />
+                    <h3 class="text-sm font-semibold">Banana Large</h3>
+                    <p class="text-green-700 font-bold">R 42/4pcs</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="product-card" data-name="Green Chilli">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/14/19/11/green-chilli-2641573_1280.jpg" alt="Chilli"
+                        class="w-full h-24 object-cover mb-2 rounded" />
+                    <h3 class="text-sm font-semibold">Green Chilli</h3>
+                    <p class="text-green-700 font-bold">R 42/4pcs</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="product-card" data-name="Potato">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg" alt="Potatoes"
+                        class="w-full h-24 object-cover mb-2 rounded" />
+                    <h3 class="text-sm font-semibold">Potato</h3>
+                    <p class="text-green-700 font-bold">R 42/4pcs</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card" data-name="Cauliflower">
-                <img src="https://cdn.pixabay.com/photo/2020/09/02/15/29/cauliflower-5538616_1280.jpg" alt="Cauliflower"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Cauliflower</h3>
-                <p class="text-green-700 font-bold">R:14/600g</p>
-                <button class="add-button">+ ADD</button>
 
-            </div>
-            <div class="product-card" data-name="Banana">
-                <img src="https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_1280.jpg" alt="Banana"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Banana Large</h3>
-                <p class="text-green-700 font-bold">R:42/4pcs</p>
-                <button class="add-button">+ ADD</button>
-
-            </div>
-            <div class="product-card" data-name="Green Chilli">
-                <img src="https://cdn.pixabay.com/photo/2017/08/14/19/11/green-chilli-2641573_1280.jpg" alt="Chilli"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Green Chilli</h3>
-                <p class="text-green-700 font-bold">R:42/4pcs</p>
-                <button class="add-button">+ ADD</button>
-
-            </div>
-            <div class="product-card" data-name="Potato">
-                <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg" alt="Potatoes"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Potato</h3>
-                <p class="text-green-700 font-bold">R:42/4pcs</p>
-                <button class="add-button">+ ADD</button>
-
-            </div>
+            <!-- Right Arrow Button -->
+            <button id="next-btn" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50">
+                &gt;
+            </button>
         </div>
     </section>
 
-    <section class="mb-10">
-        <h2 class="text-xl font-bold section-title">Vegetables</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
-            <div class="product-card" data-name="French Beans">
-                <img src="https://cdn.pixabay.com/photo/2014/11/06/17/31/green-beans-519439_1280.jpg" alt="French Beans"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">French Beans</h3>
-                <p class="text-green-700 font-bold">R:31.9/350g</p>
-                <button class="add-button">+ ADD</button>
+    <script>
+        const productList = document.getElementById('product-list');
+        const products = Array.from(productList.children);
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
 
-            </div>
-            <div class="product-card" data-name="Ginger">
-                <img src="https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_1280.jpg" alt="Ginger"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Ginger</h3>
-                <p class="text-green-700 font-bold">R:25.9/200g</p>
-                <button class="add-button">+ ADD</button>
+        let startIndex = 0;
+        const visibleProducts = 4;
 
-            </div>
-            <div class="product-card" data-name="Cucumber">
-                <img src="https://cdn.pixabay.com/photo/2019/05/06/01/42/green-4182079_1280.jpg" alt="Cucumber"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Cucumber</h3>
-                <p class="text-green-700 font-bold">R:31.5/500g</p>
-                <button class="add-button">+ ADD</button>
+        // Function to update product visibility
+        function updateProducts() {
+            products.forEach((product, index) => {
+                product.style.display = index >= startIndex && index < startIndex + visibleProducts ? 'block' : 'none';
+            });
+            prevBtn.disabled = startIndex === 0;
+            nextBtn.disabled = startIndex + visibleProducts >= products.length;
+        }
 
-            </div>
-            <div class="product-card" data-name="Onion">
-                <img src="https://cdn.pixabay.com/photo/2020/05/18/15/54/onion-5187140_1280.jpg" alt="Onion"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Onion</h3>
-                <p class="text-green-700 font-bold">R:52.5/kg</p>
-                <button class="add-button">+ ADD</button>
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', () => {
+            if (startIndex > 0) {
+                startIndex--;
+                updateProducts();
+            }
+        });
 
-            </div>
-            <div class="product-card" data-name="Brocolli">
-                <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_1280.jpg" alt="Brocolli"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Brocolli</h3>
-                <p class="text-green-700 font-bold">R:52.5/kg</p>
-                <button class="add-button">+ ADD</button>
+        nextBtn.addEventListener('click', () => {
+            if (startIndex + visibleProducts < products.length) {
+                startIndex++;
+                updateProducts();
+            }
+        });
 
-            </div>
-            <div class="product-card" data-name="Eggplant">
-                <img src="https://cdn.pixabay.com/photo/2016/09/10/17/47/eggplant-1659784_1280.jpg" alt="Eggplant"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">EggPlant</h3>
-                <p class="text-green-700 font-bold">R:52.5/kg</p>
-                <button class="add-button">+ ADD</button>
+        // Initialize visibility
+        updateProducts();
+    </script>
 
+
+    <section class="mb-10 mr-10 ml-10">
+        <h2 class="text-xl font-bold section-title text-black">Vegetables</h2>
+        <div class="flex items-center mt-4">
+            <!-- Left Arrow Button -->
+            <button id="prev-btn-vegetables"
+                class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50" disabled>
+                &lt;
+            </button>
+
+            <!-- Product Carousel -->
+            <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
+                style="width: 100%;">
+                <!-- Product Cards -->
+                <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="French Beans">
+                    <img src="https://cdn.pixabay.com/photo/2014/11/06/17/31/green-beans-519439_1280.jpg"
+                        alt="French Beans" class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">French Beans</h3>
+                    <p class="text-green-700 font-bold">R 31.9/350g</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Ginger">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_1280.jpg" alt="Ginger"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Ginger</h3>
+                    <p class="text-green-700 font-bold">R 25.9/200g</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Cucumber">
+                    <img src="https://cdn.pixabay.com/photo/2019/05/06/01/42/green-4182079_1280.jpg" alt="Cucumber"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Cucumber</h3>
+                    <p class="text-green-700 font-bold">R 31.5/500g</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Onion">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/18/15/54/onion-5187140_1280.jpg" alt="Onion"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Onion</h3>
+                    <p class="text-green-700 font-bold">R 52.5/kg</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Broccoli">
+                    <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_1280.jpg" alt="Broccoli"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Broccoli</h3>
+                    <p class="text-green-700 font-bold">R 52.5/kg</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+                <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Eggplant">
+                    <img src="https://cdn.pixabay.com/photo/2016/09/10/17/47/eggplant-1659784_1280.jpg" alt="Eggplant"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Eggplant</h3>
+                    <p class="text-green-700 font-bold">R 52.5/kg</p>
+                    <div class="flex items-center justify-end">
+                        <div class="flex items-center hidden counter">
+                            <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
+                            <span class="quantity px-4 py-1 bg-gray-200">1</span>
+                            <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
+                        </div>
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
             </div>
+
+            <!-- Right Arrow Button -->
+            <button id="next-btn-vegetables" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded">
+                &gt;
+            </button>
         </div>
     </section>
 
-    <section class="mb-10">
-        <h2 class="text-xl font-bold section-title">Fruits</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
-            <div class="product-card" data-name="Apple">
-                <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apple"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Apple</h3>
-                <p class="text-green-700 font-bold">R:120/kg</p>
-                <button class="add-button">+ ADD</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const vegetableCards = document.querySelectorAll(".vegetable-card");
+            const prevBtn = document.getElementById("prev-btn-vegetables");
+            const nextBtn = document.getElementById("next-btn-vegetables");
+            let currentIndex = 0;
+            const visibleCount = 4; // Number of visible cards at a time
 
-            </div>
-            <div class="product-card" data-name="Mango">
-                <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/mango-5171747_1280.jpg" alt="Mango"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Mango</h3>
-                <p class="text-green-700 font-bold">R:150/kg</p>
-                <button class="add-button">+ ADD</button>
+            const updateVegetableCarousel = () => {
+                vegetableCards.forEach((card, index) => {
+                    if (index >= currentIndex && index < currentIndex + visibleCount) {
+                        card.classList.remove("hidden");
+                    } else {
+                        card.classList.add("hidden");
+                    }
+                });
 
-            </div>
-            <div class="product-card" data-name="Grapes">
-                <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg" alt="grapes"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Grapes</h3>
-                <p class="text-green-700 font-bold">R:150/kg</p>
-                <button class="add-button">+ ADD</button>
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex + visibleCount >= vegetableCards.length;
+            };
 
-            </div>
-            <div class="product-card" data-name="Watermelon">
-                <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg" alt="Watermelon"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Watermelon</h3>
-                <p class="text-green-700 font-bold">R:150/kg</p>
-                <button class="add-button">+ ADD</button>
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateVegetableCarousel();
+                }
+            });
 
-            </div>
-            <div class="product-card" data-name="Papaya">
-                <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/papaya-3349834_1280.jpg" alt="Papaya"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Papaya</h3>
-                <p class="text-green-700 font-bold">R:150/kg</p>
-                <button class="add-button">+ ADD</button>
+            nextBtn.addEventListener("click", () => {
+                if (currentIndex + visibleCount < vegetableCards.length) {
+                    currentIndex++;
+                    updateVegetableCarousel();
+                }
+            });
 
-            </div>
-            <div class="product-card" data-name="Oranges">
-                <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/oranges-1995079_1280.jpg" alt="orange"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Orange</h3>
-                <p class="text-green-700 font-bold">R:150/kg</p>
-                <button class="add-button">+ ADD</button>
+            // Initial load
+            updateVegetableCarousel();
+        });
+    </script>
 
+
+    <section class="mb-10 mr-10 ml-10">
+        <h2 class="text-xl font-bold section-title text-black">Fruits</h2>
+        <div class="flex items-center mt-4">
+            <!-- Left Arrow Button -->
+            <button id="prev-btn-fruits" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50"
+                disabled>
+                &lt;
+            </button>
+
+            <!-- Product Carousel -->
+            <div id="product-list-fruits"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden" style="width: 100%;">
+                <!-- Product Cards -->
+                <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Apple">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apple"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Apple</h3>
+                    <p class="text-green-700 font-bold">R 120/kg</p>
+                    <div class="flex items-center justify-end">
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+
+                <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Mango">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/mango-5171747_1280.jpg" alt="Mango"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Mango</h3>
+                    <p class="text-green-700 font-bold">R 150/kg</p>
+                    <div class="flex items-center justify-end">
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+
+                <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Grapes">
+                    <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg" alt="Grapes"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Grapes</h3>
+                    <p class="text-green-700 font-bold">R 150/kg</p>
+                    <div class="flex items-center justify-end">
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+
+                <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Watermelon">
+                    <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg"
+                        alt="Watermelon" class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Watermelon</h3>
+                    <p class="text-green-700 font-bold">R 150/kg</p>
+                    <div class="flex items-center justify-end">
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+
+                <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Papaya">
+                    <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/papaya-3349834_1280.jpg" alt="Papaya"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Papaya</h3>
+                    <p class="text-green-700 font-bold">R 150/kg</p>
+                    <div class="flex items-center justify-end">
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
+
+                <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Orange">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/oranges-1995079_1280.jpg" alt="Orange"
+                        class="w-full h-40 object-cover mb-4 rounded">
+                    <h3 class="text-lg font-semibold">Orange</h3>
+                    <p class="text-green-700 font-bold">R 150/kg</p>
+                    <div class="flex items-center justify-end">
+                        <button
+                            class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                    </div>
+                </div>
             </div>
+
+            <!-- Right Arrow Button -->
+            <button id="next-btn-fruits" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded">
+                &gt;
+            </button>
         </div>
     </section>
 
-    <section class="mb-10">
-        <h2 class="text-xl font-bold section-title">Milk & Dairy</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
-            <div class="product-card" data-name="Full Cream Milk">
-                <img src="https://cdn.pixabay.com/photo/2019/07/25/20/55/milk-4363421_1280.jpg" alt="Milk"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Full Cream Milk</h3>
-                <p class="text-green-700 font-bold">R:50/L</p>
-                <button class="add-button">+ ADD</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fruitCards = document.querySelectorAll(".fruit-card");
+            const prevBtn = document.getElementById("prev-btn-fruits");
+            const nextBtn = document.getElementById("next-btn-fruits");
+            let currentIndex = 0;
+            const visibleCount = 4; // Number of visible cards at a time
 
-            </div>
-            <div class="product-card" data-name="Butter">
-                <img src="https://cdn.pixabay.com/photo/2013/09/27/09/53/butter-186909_1280.jpg" alt="Butter"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Butter</h3>
-                <p class="text-green-700 font-bold">R:50/pack</p>
-                <button class="add-button">+ ADD</button>
+            const updateFruitCarousel = () => {
+                fruitCards.forEach((card, index) => {
+                    if (index >= currentIndex && index < currentIndex + visibleCount) {
+                        card.classList.remove("hidden");
+                    } else {
+                        card.classList.add("hidden");
+                    }
+                });
 
-            </div>
-            <div class="product-card" data-name="Paneer">
-                <img src="https://cdn.pixabay.com/photo/2020/07/04/09/29/paneer-5368890_1280.jpg" alt="Paneer"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Paneer</h3>
-                <p class="text-green-700 font-bold">R:150/pack</p>
-                <button class="add-button">+ ADD</button>
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex + visibleCount >= fruitCards.length;
+            };
 
-            </div>
-            <div class="product-card" data-name="Cheese">
-                <img src="https://cdn.pixabay.com/photo/2023/11/10/10/19/cheese-8379082_1280.jpg" alt="Cheese"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Cheese</h3>
-                <p class="text-green-700 font-bold">R:150/pack</p>
-                <button class="add-button">+ ADD</button>
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateFruitCarousel();
+                }
+            });
 
-            </div>
-            <div class="product-card" data-name="Cheddar Cheese">
-                <img src="https://cdn.pixabay.com/photo/2021/01/18/16/29/cheese-5928622_1280.jpg" alt="Cheese"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Cheddar Cheese</h3>
-                <p class="text-green-700 font-bold">R:150/pack</p>
-                <button class="add-button">+ ADD</button>
+            nextBtn.addEventListener("click", () => {
+                if (currentIndex + visibleCount < fruitCards.length) {
+                    currentIndex++;
+                    updateFruitCarousel();
+                }
+            });
 
-            </div>
-            <div class="product-card" data-name="Yogurt">
-                <img src="https://cdn.pixabay.com/photo/2017/12/14/02/41/yogurt-3018152_1280.jpg" alt="Yogurt"
-                    class="w-full h-24 object-cover mb-2 rounded">
-                <h3 class="text-sm font-semibold">Yogurt</h3>
-                <p class="text-green-700 font-bold">R:150/L</p>
-                <button class="add-button">+ ADD</button>
+            // Initial load
+            updateFruitCarousel();
+        });
+    </script>
 
+    <section class="mb-10 mr-10 ml-10">
+        <h2 class="text-xl font-bold section-title text-black">Milk & Dairy</h2>
+        <div class="flex items-center mt-4">
+            <!-- Left Arrow Button -->
+            <button id="prev-btn-dairy" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50"
+                disabled>
+                &lt;
+            </button>
+
+            <!-- Product Carousel -->
+            <div id="product-carousel-dairy" class="relative w-full overflow-hidden">
+                <div id="product-list-dairy" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Product Cards -->
+                    <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Full Cream Milk">
+                        <img src="https://cdn.pixabay.com/photo/2019/07/25/20/55/milk-4363421_1280.jpg" alt="Milk"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Full Cream Milk</h3>
+                        <p class="text-green-700 font-bold">R 50/L</p>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                        </div>
+                    </div>
+                    <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Butter">
+                        <img src="https://cdn.pixabay.com/photo/2013/09/27/09/53/butter-186909_1280.jpg" alt="Butter"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Butter</h3>
+                        <p class="text-green-700 font-bold">R 50/pack</p>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                        </div>
+                    </div>
+                    <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Paneer">
+                        <img src="https://cdn.pixabay.com/photo/2020/07/04/09/29/paneer-5368890_1280.jpg" alt="Paneer"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Paneer</h3>
+                        <p class="text-green-700 font-bold">R 150/pack</p>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                        </div>
+                    </div>
+                    <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Cheese">
+                        <img src="https://cdn.pixabay.com/photo/2023/11/10/10/19/cheese-8379082_1280.jpg" alt="Cheese"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Cheese</h3>
+                        <p class="text-green-700 font-bold">R 150/pack</p>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                        </div>
+                    </div>
+                    <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Cheddar Cheese">
+                        <img src="https://cdn.pixabay.com/photo/2021/01/18/16/29/cheese-5928622_1280.jpg"
+                            alt="Cheddar Cheese" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Cheddar Cheese</h3>
+                        <p class="text-green-700 font-bold">R 150/pack</p>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                        </div>
+                    </div>
+                    <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Yogurt">
+                        <img src="https://cdn.pixabay.com/photo/2017/12/14/02/41/yogurt-3018152_1280.jpg" alt="Yogurt"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Yogurt</h3>
+                        <p class="text-green-700 font-bold">R 150/L</p>
+                        <div class="flex items-center justify-end">
+                            <button
+                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Right Arrow Button -->
+            <button id="next-btn-dairy" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded">
+                &gt;
+            </button>
         </div>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const productListDairy = document.getElementById("product-list-dairy");
+            const prevBtnDairy = document.getElementById("prev-btn-dairy");
+            const nextBtnDairy = document.getElementById("next-btn-dairy");
+            const productCardsDairy = document.querySelectorAll(".product-card");
+            let currentIndexDairy = 0;
+            const visibleCount = 4; // Number of visible cards at a time
+
+            // Set each card to a specific width to show exactly 4 cards
+            const cardWidth = 100 / visibleCount;
+            productCardsDairy.forEach(card => {
+                card.style.flex = `0 0 ${cardWidth}%`;
+            });
+
+            const updateDairyCarousel = () => {
+                const offset = -(currentIndexDairy * 100 / visibleCount);
+                productListDairy.style.transform = `translateX(${offset}%)`;
+
+                prevBtnDairy.disabled = currentIndexDairy === 0;
+                nextBtnDairy.disabled = currentIndexDairy + visibleCount >= productCardsDairy.length;
+            };
+
+            prevBtnDairy.addEventListener("click", () => {
+                if (currentIndexDairy > 0) {
+                    currentIndexDairy--;
+                    updateDairyCarousel();
+                }
+            });
+
+            nextBtnDairy.addEventListener("click", () => {
+                if (currentIndexDairy + visibleCount < productCardsDairy.length) {
+                    currentIndexDairy++;
+                    updateDairyCarousel();
+                }
+            });
+
+            // Initial load
+            updateDairyCarousel();
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = {};
+
+            document.querySelectorAll('.product-card').forEach(card => {
+                const addButton = card.querySelector('.add-button');
+                const counter = card.querySelector('.counter');
+                const decreaseButton = card.querySelector('.decrease-button');
+                const increaseButton = card.querySelector('.increase-button');
+                const quantityElement = card.querySelector('.quantity');
+                const productName = card.dataset.name;
+                const productPrice = parseFloat(card.dataset.price);
+
+                addButton.addEventListener('click', () => {
+                    addButton.classList.add('hidden');
+                    counter.classList.remove('hidden');
+                    cart[productName] = { quantity: 1, price: productPrice };
+                    updateCart();
+                });
+
+                decreaseButton.addEventListener('click', () => {
+                    if (cart[productName].quantity > 1) {
+                        cart[productName].quantity--;
+                    } else {
+                        delete cart[productName];
+                        addButton.classList.remove('hidden');
+                        counter.classList.add('hidden');
+                    }
+                    updateCart();
+                });
+
+                increaseButton.addEventListener('click', () => {
+                    cart[productName].quantity++;
+                    updateCart();
+                });
+
+                function updateCart() {
+                    quantityElement.textContent = cart[productName]?.quantity || 0;
+                    console.log('Cart:', cart); // Display cart in the console
+                }
+            });
+        });
+    </script>
     <script>
         document.getElementById('search-input').addEventListener('input', function () {
             const query = this.value.toLowerCase();
