@@ -140,17 +140,18 @@
         <h2 class="text-xl font-bold">Flash Deal: Avail Any 4 Deals</h2>
         <div class="flex items-center mt-4">
             <!-- Left Arrow Button -->
-            <button id="prev-btn" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50">
+            <button id="prev-btn" aria-label="Previous"
+                class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50">
                 &lt;
             </button>
 
             <!-- Product List -->
-            <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
-                style="width: 100%;">
+            <div id="product-list"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden w-full">
                 <!-- Individual Product Cards -->
                 <div class="product-card" data-name="Tomato Desi">
-                    <img src="https://cdn.pixabay.com/photo/2019/05/29/19/04/tomatoes-4238247_1280.jpg" alt="Tomato"
-                        class="w-full h-24 object-cover mb-2 rounded" />
+                    <img src="https://cdn.pixabay.com/photo/2019/05/29/19/04/tomatoes-4238247_1280.jpg"
+                        alt="Fresh Tomatoes" class="w-full h-24 object-cover mb-2 rounded" />
                     <h3 class="text-sm font-semibold">Tomato Desi</h3>
                     <p class="text-green-700 font-bold">R 5/500g</p>
                     <div class="flex items-center justify-end">
@@ -163,6 +164,7 @@
                             class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-name="Guava">
                     <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_1280.jpg" alt="Guava"
                         class="w-full h-24 object-cover mb-2 rounded" />
@@ -248,40 +250,49 @@
     </section>
 
     <script>
-        const productList = document.getElementById('product-list');
-        const products = Array.from(productList.children);
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
+        document.addEventListener("DOMContentLoaded", () => {
+            const productList = document.getElementById("product-list");
+            const products = Array.from(productList.children);
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
 
-        let startIndex = 0;
-        const visibleProducts = 4;
+            let startIndex = 0;
+            const visibleProducts = 4;
 
-        // Function to update product visibility
-        function updateProducts() {
-            products.forEach((product, index) => {
-                product.style.display = index >= startIndex && index < startIndex + visibleProducts ? 'block' : 'none';
+            // Function to update product visibility
+            function updateProducts() {
+                products.forEach((product, index) => {
+                    product.style.display =
+                        index >= startIndex && index < startIndex + visibleProducts ? "block" : "none";
+                });
+
+                prevBtn.disabled = startIndex === 0;
+                nextBtn.disabled = startIndex + visibleProducts >= products.length;
+            }
+
+            // Event listeners for navigation buttons
+            prevBtn.addEventListener("click", () => {
+                if (startIndex > 0) {
+                    startIndex--;
+                    updateProducts();
+                }
             });
-            prevBtn.disabled = startIndex === 0;
-            nextBtn.disabled = startIndex + visibleProducts >= products.length;
-        }
 
-        // Event listeners for navigation buttons
-        prevBtn.addEventListener('click', () => {
-            if (startIndex > 0) {
-                startIndex--;
+            nextBtn.addEventListener("click", () => {
+                if (startIndex + visibleProducts < products.length) {
+                    startIndex++;
+                    updateProducts();
+                }
+            });
+
+            // Initialize visibility
+            if (products.length > 0) {
                 updateProducts();
+            } else {
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
             }
         });
-
-        nextBtn.addEventListener('click', () => {
-            if (startIndex + visibleProducts < products.length) {
-                startIndex++;
-                updateProducts();
-            }
-        });
-
-        // Initialize visibility
-        updateProducts();
     </script>
 
 
@@ -723,6 +734,7 @@
                 });
 
                 increaseButton.addEventListener('click', () => {
+                    z
                     cart[productName].quantity++;
                     updateCart();
                 });
