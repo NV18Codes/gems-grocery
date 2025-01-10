@@ -14,6 +14,8 @@
     document.getElementById("location-text").textContent = "Geolocation not supported";
 }
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const productList = document.getElementById("product-list");
     const products = Array.from(productList.children);
@@ -58,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const vegetableCards = document.querySelectorAll(".vegetable-card");
     const prevBtn = document.getElementById("prev-btn-vegetables");
@@ -96,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateVegetableCarousel();
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const fruitCards = document.querySelectorAll(".fruit-card");
     const prevBtn = document.getElementById("prev-btn-fruits");
@@ -133,6 +139,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial load
     updateFruitCarousel();
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const productListDairy = document.getElementById("product-list-dairy");
@@ -216,6 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
 
 document.getElementById('search-input').addEventListener('input', function () {
     const query = this.value.toLowerCase();

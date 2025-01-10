@@ -28,12 +28,12 @@ body {
     margin-bottom: 1rem;
 }
 
-header {
-    background: linear-gradient(to right, #2ccd6a, #0fb842);
+.header {
+    background-color: #009900;
 }
 
-footer {
-    background: linear-gradient(to right, #2ccd6a, #0fb842);
+.footer {
+    background-color: rgb(22 163 74 );
 }
 
 .nav-link:hover {
@@ -41,7 +41,7 @@ footer {
 }
 
 .add-button {
-    background-color: #00c853;
+    background-color: rgb(22 163 74 );
     color: white;
     border-radius: 5px;
     padding: 0.5rem;
@@ -50,5 +50,8 @@ footer {
 }
 
 .add-button:hover {
-    background-color: #00a244;
+    background-color: rgb(6, 53, 23);
+}
+.increase-button {
+    background-color: #009900;
 }

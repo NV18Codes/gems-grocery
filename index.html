@@ -8,12 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    <script src=".vscode\script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header class="sticky top-0 z-50 bg-green-600 text-white py-4 shadow-md">
+    <header class="header top-0 z-50 text-white py-4 shadow-md">
         <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
 
             <!-- Store Title with Logo (Left Aligned) -->
@@ -65,243 +66,14 @@
         <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
     </nav>
     <main>
-        <section class="mb-10 ml-10 mr-10 mt-4">
-            <h2 class="text-xl font-bold">Flash Deal: Avail Any 4 Deals</h2>
-            <div class="flex items-center mt-4">
-                <!-- Left Arrow Button -->
-                <button id="prev-btn" aria-label="Previous"
-                    class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50">
-                    &lt;
-                </button>
-
-                <!-- Product List -->
-                <div id="product-list"
-                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden w-full">
-                    <!-- Individual Product Cards -->
-                    <div class="product-card" data-name="Tomato Desi">
-                        <img src="https://cdn.pixabay.com/photo/2019/05/29/19/04/tomatoes-4238247_1280.jpg"
-                            alt="Fresh Tomatoes" class="w-full h-24 object-cover mb-2 rounded" />
-                        <h3 class="text-sm font-semibold">Tomato Desi</h3>
-                        <p class="text-green-700 font-bold">R 5/500g</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-name="Guava">
-                        <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_1280.jpg" alt="Guava"
-                            class="w-full h-24 object-cover mb-2 rounded" />
-                        <h3 class="text-sm font-semibold">Guava</h3>
-                        <p class="text-green-700 font-bold">R 23/450g</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="product-card" data-name="Cauliflower">
-                        <img src="https://cdn.pixabay.com/photo/2020/09/02/15/29/cauliflower-5538616_1280.jpg"
-                            alt="Cauliflower" class="w-full h-24 object-cover mb-2 rounded" />
-                        <h3 class="text-sm font-semibold">Cauliflower</h3>
-                        <p class="text-green-700 font-bold">R 14/600g</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="product-card" data-name="Banana">
-                        <img src="https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_1280.jpg" alt="Banana"
-                            class="w-full h-24 object-cover mb-2 rounded" />
-                        <h3 class="text-sm font-semibold">Banana Large</h3>
-                        <p class="text-green-700 font-bold">R 42/4pcs</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="product-card" data-name="Green Chilli">
-                        <img src="https://cdn.pixabay.com/photo/2017/08/14/19/11/green-chilli-2641573_1280.jpg"
-                            alt="Chilli" class="w-full h-24 object-cover mb-2 rounded" />
-                        <h3 class="text-sm font-semibold">Green Chilli</h3>
-                        <p class="text-green-700 font-bold">R 42/4pcs</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="product-card" data-name="Potato">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg"
-                            alt="Potatoes" class="w-full h-24 object-cover mb-2 rounded" />
-                        <h3 class="text-sm font-semibold">Potato</h3>
-                        <p class="text-green-700 font-bold">R 42/4pcs</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Arrow Button -->
-                <button id="next-btn" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50">
-                    &gt;
-                </button>
-            </div>
-        </section>
 
 
-
-
+        <!--FLASH DEALS SECTION START-->
         <section class="mb-10 mr-10 ml-10">
-            <h2 class="text-xl font-bold section-title text-black">Vegetables</h2>
+            <h2 class="text-xl font-bold section-title text-black">Flash Deal: Avail Any 4 Deals</h2>
             <div class="flex items-center mt-4">
                 <!-- Left Arrow Button -->
-                <button id="prev-btn-vegetables"
-                    class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50" disabled>
-                    &lt;
-                </button>
-
-                <!-- Product Carousel -->
-                <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
-                    style="width: 100%;">
-                    <!-- Product Cards -->
-                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="French Beans">
-                        <img src="https://cdn.pixabay.com/photo/2014/11/06/17/31/green-beans-519439_1280.jpg"
-                            alt="French Beans" class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">French Beans</h3>
-                        <p class="text-green-700 font-bold">R 31.9/350g</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Ginger">
-                        <img src="https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_1280.jpg" alt="Ginger"
-                            class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Ginger</h3>
-                        <p class="text-green-700 font-bold">R 25.9/200g</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Cucumber">
-                        <img src="https://cdn.pixabay.com/photo/2019/05/06/01/42/green-4182079_1280.jpg" alt="Cucumber"
-                            class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Cucumber</h3>
-                        <p class="text-green-700 font-bold">R 31.5/500g</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Onion">
-                        <img src="https://cdn.pixabay.com/photo/2020/05/18/15/54/onion-5187140_1280.jpg" alt="Onion"
-                            class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Onion</h3>
-                        <p class="text-green-700 font-bold">R 52.5/kg</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Broccoli">
-                        <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_1280.jpg"
-                            alt="Broccoli" class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Broccoli</h3>
-                        <p class="text-green-700 font-bold">R 52.5/kg</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Eggplant">
-                        <img src="https://cdn.pixabay.com/photo/2016/09/10/17/47/eggplant-1659784_1280.jpg"
-                            alt="Eggplant" class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Eggplant</h3>
-                        <p class="text-green-700 font-bold">R 52.5/kg</p>
-                        <div class="flex items-center justify-end">
-                            <div class="flex items-center hidden counter">
-                                <button class="decrease-button px-2 py-1 bg-red-500 text-white rounded-l">-</button>
-                                <span class="quantity px-4 py-1 bg-gray-200">1</span>
-                                <button class="increase-button px-2 py-1 bg-green-500 text-white rounded-r">+</button>
-                            </div>
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Arrow Button -->
-                <button id="next-btn-vegetables" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded">
-                    &gt;
-                </button>
-            </div>
-        </section>
-
-
-
-
-        <section class="mb-10 mr-10 ml-10">
-            <h2 class="text-xl font-bold section-title text-black">Fruits</h2>
-            <div class="flex items-center mt-4">
-                <!-- Left Arrow Button -->
-                <button id="prev-btn-fruits"
-                    class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50" disabled>
+                <button id="prev-btn-fruits" class="px-3 py-2  hover: rounded disabled:opacity-50" disabled>
                     &lt;
                 </button>
 
@@ -310,88 +82,471 @@
                     class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
                     style="width: 100%;">
                     <!-- Product Cards -->
-                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Apple">
-                        <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apple"
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Potatoes">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Potatoes"
                             class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Apple</h3>
+                        <h3 class="text-lg font-semibold">Potatoes</h3>
                         <p class="text-green-700 font-bold">R 120/kg</p>
                         <div class="flex items-center justify-end">
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                         </div>
                     </div>
 
-                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Mango">
-                        <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/mango-5171747_1280.jpg" alt="Mango"
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Tomatoes">
+                        <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/Grapess-5171747_1280.jpg"
+                            alt="Tomatoes" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Tomatoes</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Onions">
+                        <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/Strawberries-582207_1280.jpg"
+                            alt="Onions" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Onions</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Green Beans">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/Avocados-2409368_1280.jpg"
+                            alt="Green Beans" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Green Beans</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Okra">
+                        <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/Bananas-3349834_1280.jpg" alt="Okra"
                             class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Mango</h3>
+                        <h3 class="text-lg font-semibold">Okra</h3>
                         <p class="text-green-700 font-bold">R 150/kg</p>
                         <div class="flex items-center justify-end">
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                         </div>
                     </div>
 
-                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Grapes">
-                        <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg" alt="Grapes"
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Green Chillies">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Green Chillies" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Green Chillies</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Dhaniya/Coriander">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Dhaniya/Coriander" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Dhaniya/Coriander</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Mint">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Mint"
                             class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Grapes</h3>
+                        <h3 class="text-lg font-semibold">Mint</h3>
                         <p class="text-green-700 font-bold">R 150/kg</p>
                         <div class="flex items-center justify-end">
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                         </div>
                     </div>
-
-                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Watermelon">
-                        <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg"
-                            alt="Watermelon" class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Watermelon</h3>
-                        <p class="text-green-700 font-bold">R 150/kg</p>
-                        <div class="flex items-center justify-end">
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
-                        </div>
-                    </div>
-
-                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Papaya">
-                        <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/papaya-3349834_1280.jpg" alt="Papaya"
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Ginger">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Ginger"
                             class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Papaya</h3>
+                        <h3 class="text-lg font-semibold">Ginger</h3>
                         <p class="text-green-700 font-bold">R 150/kg</p>
                         <div class="flex items-center justify-end">
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                         </div>
                     </div>
-
-                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Orange">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/oranges-1995079_1280.jpg" alt="Orange"
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Garlic">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Garlic"
                             class="w-full h-40 object-cover mb-4 rounded">
-                        <h3 class="text-lg font-semibold">Orange</h3>
+                        <h3 class="text-lg font-semibold">Garlic</h3>
                         <p class="text-green-700 font-bold">R 150/kg</p>
                         <div class="flex items-center justify-end">
-                            <button
-                                class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Spinach">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Spinach"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Spinach</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="vegetable-card p-4 bg-white shadow-md rounded-lg" data-name="Sour Herbs">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Sour Herbs" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Sour Herbs</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right Arrow Button -->
-                <button id="next-btn-fruits" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded">
+                <button id="next-btn-fruits" class="px-3 py-2  hover: rounded">
                     &gt;
                 </button>
             </div>
         </section>
+        <div id="no-results" class="hidden text-center text-gray-900 text-2xl text-bold mt-6">No products found.</div>
 
+        <!--FLASH DEALS SECTION END-->
+
+
+
+
+
+
+        <!--VEGETABLES SECTION START-->
+        <section class="mb-10 mr-10 ml-10">
+            <h2 class="text-xl font-bold section-title text-black">Vegetables</h2>
+            <div class="flex items-center mt-4">
+                <!-- Left Arrow Button -->
+                <button id="prev-btn-fruits" class="px-3 py-2  hover: rounded disabled:opacity-50" disabled>
+                    &lt;
+                </button>
+
+                <!-- Product Carousel -->
+                <div id="product-list-fruits"
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
+                    style="width: 100%;">
+                    <!-- Product Cards -->
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Cabbage">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Cabbage"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Cabbage</h3>
+                        <p class="text-green-700 font-bold">R 120/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Brocolli">
+                        <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/Grapess-5171747_1280.jpg"
+                            alt="Brocolli" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Brocolli</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Cauliflower">
+                        <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/Strawberries-582207_1280.jpg"
+                            alt="Cauliflower" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Cauliflower</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Green Guard/Kalabash">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/Avocados-2409368_1280.jpg"
+                            alt="Green Guard/Kalabash" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Green Guard/Kalabash</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Carrots">
+                        <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/Bananas-3349834_1280.jpg" alt="Carrots"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Carrots</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Beetroot">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Beetroot" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Beetroot</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Raddish">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Raddish"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Raddish</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Baby Marrow">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Baby Marrow" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Baby Marrow</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Butternut">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Butternut" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Butternut</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Peppers">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Peppers"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Peppers</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Arrow Button -->
+                <button id="next-btn-fruits" class="px-3 py-2  hover: rounded">
+                    &gt;
+                </button>
+            </div>
+        </section>
+        <!--VEGETABLES SECTION END-->
+
+
+
+
+
+        <!--FRUITS SECTION START-->
+        <section class="mb-10 mr-10 ml-10">
+            <h2 class="text-xl font-bold section-title text-black">Fruits</h2>
+            <div class="flex items-center mt-4">
+                <!-- Left Arrow Button -->
+                <button id="prev-btn-fruits" class="px-3 py-2  hover: rounded disabled:opacity-50" disabled>
+                    &lt;
+                </button>
+
+                <!-- Product Carousel -->
+                <div id="product-list-fruits"
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
+                    style="width: 100%;">
+                    <!-- Product Cards -->
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Apples">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apples"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Apples</h3>
+                        <p class="text-green-700 font-bold">R 120/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Grapess">
+                        <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/Grapess-5171747_1280.jpg" alt="Grapess"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Grapess</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Strawberries">
+                        <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/Strawberries-582207_1280.jpg"
+                            alt="Strawberries" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Strawberries</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Avocados">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/Avocados-2409368_1280.jpg"
+                            alt="Avocados" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Avocados</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Bananas">
+                        <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/Bananas-3349834_1280.jpg" alt="Bananas"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Bananas</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Grapes">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Grapes"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Grapes</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Watermelon">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Watermelon" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Watermelon</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Lemons">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapes-1995079_1280.jpg" alt="Lemons"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Lemons</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Arrow Button -->
+                <button id="next-btn-fruits" class="px-3 py-2  hover: rounded">
+                    &gt;
+                </button>
+            </div>
+        </section>
+        <!--FRUITS SECTION END-->
+
+
+
+
+
+        <!--DAIRY AND POULTRY SECTION START-->
+        <section class="mb-10 mr-10 ml-10">
+            <h2 class="text-xl font-bold section-title text-black">Dairy and Poultry</h2>
+            <div class="flex items-center mt-4">
+                <!-- Left Arrow Button -->
+                <button id="prev-btn-fruits" class="px-3 py-2  hover: rounded disabled:opacity-50" disabled>
+                    &lt;
+                </button>
+
+                <!-- Product Carousel -->
+                <div id="product-list-fruits"
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mx-4 overflow-hidden"
+                    style="width: 100%;">
+                    <!-- Product Cards -->
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Apples">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apples"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Apples</h3>
+                        <p class="text-green-700 font-bold">R 120/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Grapess">
+                        <img src="https://cdn.pixabay.com/photo/2020/05/15/00/11/Grapess-5171747_1280.jpg" alt="Grapess"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Grapess</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Strawberries">
+                        <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/Strawberries-582207_1280.jpg"
+                            alt="Strawberries" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Strawberries</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Avocados">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/Avocados-2409368_1280.jpg"
+                            alt="Avocados" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Avocados</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Bananas">
+                        <img src="https://cdn.pixabay.com/photo/2018/04/25/15/41/Bananas-3349834_1280.jpg" alt="Bananas"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Bananas</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Grapes">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Grapes"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Grapes</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Watermelon">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg"
+                            alt="Watermelon" class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Watermelon</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                    <div class="fruit-card p-4 bg-white shadow-md rounded-lg" data-name="Lemons">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/12/Grapess-1995079_1280.jpg" alt="Lemons"
+                            class="w-full h-40 object-cover mb-4 rounded">
+                        <h3 class="text-lg font-semibold">Lemons</h3>
+                        <p class="text-green-700 font-bold">R 150/kg</p>
+                        <div class="flex items-center justify-end">
+                            <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Arrow Button -->
+                <button id="next-btn-fruits" class="px-3 py-2  hover: rounded">
+                    &gt;
+                </button>
+            </div>
+        </section>
+        <!--MILK AND DAIRY SECTION END-->
 
 
         <section class="mb-10 mr-10 ml-10">
             <h2 class="text-xl font-bold section-title text-black">Milk & Dairy</h2>
             <div class="flex items-center mt-4">
                 <!-- Left Arrow Button -->
-                <button id="prev-btn-dairy"
-                    class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded disabled:opacity-50" disabled>
+                <button id="prev-btn-dairy" class="px-3 py-2  hover: rounded disabled:opacity-50" disabled>
                     &lt;
                 </button>
 
@@ -405,8 +560,7 @@
                             <h3 class="text-lg font-semibold">Full Cream Milk</h3>
                             <p class="text-green-700 font-bold">R 50/L</p>
                             <div class="flex items-center justify-end">
-                                <button
-                                    class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                                <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                             </div>
                         </div>
                         <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Butter">
@@ -415,8 +569,7 @@
                             <h3 class="text-lg font-semibold">Butter</h3>
                             <p class="text-green-700 font-bold">R 50/pack</p>
                             <div class="flex items-center justify-end">
-                                <button
-                                    class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                                <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                             </div>
                         </div>
                         <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Paneer">
@@ -425,8 +578,7 @@
                             <h3 class="text-lg font-semibold">Paneer</h3>
                             <p class="text-green-700 font-bold">R 150/pack</p>
                             <div class="flex items-center justify-end">
-                                <button
-                                    class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                                <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                             </div>
                         </div>
                         <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Cheese">
@@ -435,8 +587,7 @@
                             <h3 class="text-lg font-semibold">Cheese</h3>
                             <p class="text-green-700 font-bold">R 150/pack</p>
                             <div class="flex items-center justify-end">
-                                <button
-                                    class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                                <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                             </div>
                         </div>
                         <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Cheddar Cheese">
@@ -445,8 +596,7 @@
                             <h3 class="text-lg font-semibold">Cheddar Cheese</h3>
                             <p class="text-green-700 font-bold">R 150/pack</p>
                             <div class="flex items-center justify-end">
-                                <button
-                                    class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                                <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                             </div>
                         </div>
                         <div class="product-card p-4 bg-white shadow-md rounded-lg" data-name="Yogurt">
@@ -455,15 +605,14 @@
                             <h3 class="text-lg font-semibold">Yogurt</h3>
                             <p class="text-green-700 font-bold">R 150/L</p>
                             <div class="flex items-center justify-end">
-                                <button
-                                    class="add-button px-4 py-1 bg-green-500 text-white rounded hover:bg-green-700">ADD</button>
+                                <button class="add-button px-4 py-1  text-white rounded ">ADD</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right Arrow Button -->
-                <button id="next-btn-dairy" class="px-3 py-2 bg-green-600 hover:bg-green-500 rounded">
+                <button id="next-btn-dairy" class="px-3 py-2  hover: rounded">
                     &gt;
                 </button>
             </div>
